@@ -1,35 +1,27 @@
-import './App.css';
-import Home from "./Home";
-import Header from "./Header";
-import Checkout from "./Checkout";
-import Login from "./Login";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import './App.scss';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+// pages
+import {Home, Category, Cart} from "./pages/index";
+// components
+import Navbar from './components/Navbar/Navbar';
+import Footer from "./components/Footer/Footer";
+import {Provider} from 'react-redux';
+import store from "./store/store";
 
 function App() {
   return (
     <div className="App">
-      <Router>
-
-        <Switch>
-
-          <Route path="/login">
-            <Login />
-          </Route>
-
-          <Route path="/checkout">
-            <Header />
-            <Checkout />
-          </Route>
-
-          <Route path="/">    
-            <Header />
-            <Home />
-          </Route>
-
-        </Switch>
-
-      </Router>
-
+      <Provider store = {store}>
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path = "/" element = {<Home />} />
+            <Route path = "/category/:id" element = {<Category />} />
+            <Route path = "/cart" element = {<Cart />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </Provider>
     </div>
   );
 }
