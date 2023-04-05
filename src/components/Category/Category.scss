@@ -1,0 +1,43 @@
+@import "../../App.scss";
+
+.category-items{
+    row-gap: 20px;
+    .category-item{
+        &-name{
+            padding: 12px 0;
+        }
+    }
+
+    .newFlex{
+        flex-direction: column;
+    }
+    .new{
+        height: 200px;
+        width: 200px;
+        border-radius: 50px;
+        // background-color: #f4511e;
+        border: 1px solid;
+        box-shadow: 5px 5px 5px -3px #888888;
+        opacity: 0.8;
+        transition: 0.3s;
+    }
+
+    .new:hover {opacity: 1}
+
+    @media screen and (min-width: 576px){
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 20px;
+    }
+
+    @media screen and (min-width: 992px){
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media screen and (min-width: 1200px){
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    @media screen and (min-width: 1400px){
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
